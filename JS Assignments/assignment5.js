@@ -90,3 +90,5 @@ document.write(arr.reverse());
 var mobileNames=['Apple','Samsung', 'Motorola', 'Nokia', 'Sony' ,'Haier'];
 
 document.write(mobileNames);
+
+//End
