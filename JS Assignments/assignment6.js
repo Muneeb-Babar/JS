@@ -220,3 +220,23 @@ for (var i = 1; i <= 7; i++) {
 }
 console.log("The product of odd integers from 1 to 7 is: " + product);
 
+//Q18
+
+var initialStars = prompt("Enter the initial number of stars:");
+
+
+var numStars = parseInt(initialStars);
+
+
+
+
+for (var i = numStars; i >= 1; i--)   
+{
+    var line = '';
+    for (var j = 1; j <= i; j++)  
+    {
+    line += '*';
+    }
+console.log(line);
+}
+
