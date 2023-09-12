@@ -180,10 +180,10 @@ for(var i=0; i<students.length; i++)
 
     //Q14
 
-    let A = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+    var A = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
 
-for (let i = 0; i < A.length; i++) {
-    for (let j = 0; j < A[i].length; j++) {
+for (var i = 0; i < A.length; i++) {
+    for (var j = 0; j < A[i].length; j++) {
     document.write(A[i][j]);  
 }
 }
@@ -192,7 +192,7 @@ for (let i = 0; i < A.length; i++) {
 
 var num = prompt("Enter a positive number:");
 
-for (let i = num; i > 0; i -= 0.5) {
+for (var i = num; i > 0; i -= 0.5) {
     console.log("Current value of num: " + i);
 }
 
