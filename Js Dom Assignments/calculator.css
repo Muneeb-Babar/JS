@@ -1,0 +1,27 @@
+*{
+    background-color: black;
+    color: aliceblue;
+}
+.heading{
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 0px 1px 18px skyblue;
+}
+.cal {
+    width: 100%;
+    margin-top: 20%;
+    text-align: center;
+}
+.cal button{
+    margin: 5px 9px;
+    padding: 10px 16px;
+    box-shadow: 0px 0px 5px skyblue;
+    transition: 1s ease;
+}
+button:hover{
+    box-shadow: 0px 0px 15px seagreen;
+    cursor: pointer;
+}
+input{
+    padding: 10px;
+    text-align: center;
+}
