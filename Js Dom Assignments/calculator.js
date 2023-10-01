@@ -1,9 +1,9 @@
-var input=''
 
+var input=''
 function getnum(num){
     input+=num
     var inputElement=document.getElementById('input')
-    inputElement.value=input
+    inputElement.value+=num
 }
 function cls(){
     var  inputElement=document.getElementById('input')
