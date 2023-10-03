@@ -14,3 +14,7 @@ function calculate(){
     var result=eval(inputElement.value)
     inputElement.value=result
 }
+function del(){
+    var result=document.getElementById('input')
+        result.value=result.value.slice(0,-1)
+}
