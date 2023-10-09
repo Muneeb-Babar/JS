@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+    <script src="To_doList.js"></script>
+</head>
+<style>
+    .hide{
+        display: none;
+    }
+    input{
+        padding: 5px;
+    }
+</style>
+<body>
+    <input id="input" placeholder="Enter Any Item">
+    <button id="add-btn" onclick="addItem()">Add</button>
+    <button id="update-btn" class="hide" onclick="updateItem()">Update</button>
+    <br><br>
+    <button onclick="delAllItem()">Delete All Values</button>
+    <br><br>
+    <ul id="list">
+
+    </ul>
+</body>
+</html>
