@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <script src="Quiz.js"></script>
+    <style>
+        .hide{
+            display: none;
+        }
+        .start-btn{
+            padding: 20px 38px;
+            cursor: pointer;
+            background-color: skyblue;
+            border: 1px solid white;
+            border-radius: 30px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+        }
+        .btn{
+            display: flex;
+            justify-content: center;
+            margin-top: 20%;
+        }
+        #qus-container
+        {
+            position: absolute;
+            top: 15%;
+        }
+        .next-btn{
+            padding: 10px 16px;
+            background-color: skyblue;
+            color: white;
+            font-size: 1rem;
+            border: 1px solid white;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        input{
+            margin: 10px;
+        }
+        
+        .restart-btn{
+            padding: 20px 38px;
+            cursor: pointer;
+            background-color: skyblue;
+            border: 1px solid white;
+            border-radius: 30px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+        }
+        #resultScore{
+            padding: 20px;
+            font-size: 1.5rem;
+
+        }
+    </style>
+</head>
+<body>
+    <p id="time" style="text-align: center; background-color: black; color: aliceblue; padding: 30px; font-size: 1.5rem; word-spacing: 5px;">Best Of Luck</p>
+    <div class="btn"><button class="start-btn" onclick="start(event)">Start Quiz</button></div>
+    <div  id="qus-container" class="hide">
+        <h3 id="title"></h3>
+        <div id="option" >
+        </div>
+        <br>
+        <button class="next-btn" onclick="next()">Next</button>
+    </div>
+    <div id="result" class="hide" style="text-align: center;">
+        <p id="resultScore"></p>
+        <button class="restart-btn" onclick="restart()">Restart</button>
+    </div>
+</body>
+</html>
