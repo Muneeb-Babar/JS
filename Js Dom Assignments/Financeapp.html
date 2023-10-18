@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+<script src='./Financeapp.js'></script>
+
+<style>
+    .hide {
+    display: none
+    }
+    #table{
+        margin: 10px;
+    }
+    th{
+        padding: 10px 18px;
+    }
+</style>
+</head>
+<body>
+<input id='description' placeholder="Enter income/expense description"/>
+<input id='amount' placeholder="Enter any amount"/>
+<button onClick='addTransaction("income")'>Add Income</button>
+<button onClick='addTransaction("expense")'>Add Expense</button>
+<br><br>
+<table id='table' border='1'>
+    <tr>
+    <th>Description</th>
+    <th>Amount</th>
+    <th>Type</th>
+    </tr>
+    <tr id='total-row' class="hide">
+        <td><b>Total</b></td>
+        <td  id="total-amount"><b></b></td>
+        <td></td>
+        </tr>
+</table>
+</body>
+</html>
