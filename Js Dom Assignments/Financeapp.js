@@ -1,4 +1,4 @@
-var totalAmount=0
+var amount=0
 function addTransaction(type){
     var value1=document.getElementById('description')
     var value2=document.getElementById('amount')
@@ -18,8 +18,14 @@ function addTransaction(type){
 
     var total=document.getElementById('total-amount')
     if( type === 'income'){
-        amount=value2.value
-    total.innerHTML=amount}
+
+    amount=value2.value
+    total.innerHTML+=amount
+
+    if(type==='expense'){
+        amount-value2.value
+    }
+}
 
 
     var tdElement3=document.createElement('td')
