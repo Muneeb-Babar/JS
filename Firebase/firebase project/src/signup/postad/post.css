@@ -1,0 +1,83 @@
+
+        .categories{
+            border: 1px solid black;
+            width: 100%;
+            margin: auto;  
+            
+        }
+        
+        .categories h3{
+            font-size: 22px;
+        
+        }
+        
+        .categories li{
+            list-style: none;
+            font-size: 17px;
+            font-weight: 600;
+            text-align: left;
+            border-top: 1px solid black;
+            height: 30px;
+            padding: 22px;
+            display: flex;
+            flex-direction: row;
+            cursor: pointer;
+            
+        }
+        
+        .categories li:hover{
+            background-color: black;
+            color: aliceblue;
+        }
+        
+        .categories ul{
+            padding: 0;
+        }
+        .left-font{
+            margin-right: 60px;
+        }
+        
+        #upload-files{
+            display: none;
+        }
+        .main{
+            width: 100%;
+            padding: 10px;
+            background-color: rgb(241, 240, 240);
+        }
+        
+        .hide{
+            display: none;
+        }
+        .des1{
+            border: 1px solid black;
+            padding: 10px;        }
+            .des2{
+                border: 1px solid black;
+                padding: 20px;
+            }
+            .des3{
+                border: 1px solid black;
+            padding: 10px; 
+            }
+            .sub{
+                cursor: pointer;
+                margin: 12px;
+                border: 1px solid black;
+            }
+            .des4{
+                border: 1px solid black;
+                padding: 20px;
+            }
+            .des5{
+                border: 1px solid black;
+            padding: 20px; 
+            }
+            .des5 button{
+                background-color: rgb(2, 39, 2);
+                color: white;
+                border: none;
+                border-radius: 30px;
+                padding: 16px 22px;
+                font-size: 1.2rem;
+            }

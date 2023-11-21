@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Adds</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="./post.css">
+</head>
+<body>
+    <div class="main"><img src="https://www.olx.com.pk/assets/logo_noinline.1cdf230e49c0530ad4b8d43e37ecc4a4.svg" alt="" width="70"></div>
+    <div id="main1" >
+    <h1 style="text-align: center;">Post Your Add</h1>
+
+    <div class="categories container">
+        <h3 id="h3">CHOOSE A CATEGORIES</h3>
+        </span>
+        <ul>
+            <li onclick="hideLi()"><span class="left-font"><i class="fa-solid fa-mobile"></i></span>Mobiles</li>
+            <li onclick="hideLi()"><span class="left-font"><i class="fa-solid fa-car"></i></span>Vehicles</li>
+            <li onclick="hideLi()"><span class="left-font"><i class="fa-regular fa-building"></i></span>Property-For-Sale</li>
+            <li onclick="hideLi()"><span class="left-font"><i class="fa-regular fa-building"></i></span>Property-For-Rent</li>
+            <li onclick="hideLi()"><span class="left-font"><i class="fa-solid fa-industry"></i></span>Electronics & Home-Appliances</li>
+            <li onclick="hideLi()"><span class="left-font"><i class="fa-solid fa-motorcycle"></i></span>Bikes</li>
+            <li onclick="hideLi()"><span class="left-font"><i class="fa-solid fa-industry"></i></span>Business, Industrial & Agriculture</li>
+            <li onclick="hideLi()"><span class="left-font"><i class="fa-solid fa-bell-concierge"></i></span>Services</li>
+            <li onclick="hideLi()"><span class="left-font"><i class="fa-solid fa-user-doctor"></i></span>Jobs</li>
+            <li onclick="hideLi()"><span class="left-font"><i class="fa-solid fa-crow"></i></span>Animals</li>
+            <li onclick="hideLi()"><span class="left-font"><i class="fa-solid fa-couch"></i></span>Furniture-Home-Decor</li>
+            <li onclick="hideLi()"><span class="left-font"><i class="fa-solid fa-shirt"></i></span>Fashion & Beauty</li>
+            <li onclick="hideLi()"><span class="left-font"><i class="fa-solid fa-book"></i></span>Books-Sports-Hobbies</li>
+            <li onclick="hideLi()"><span class="left-font"><i class="fa-solid fa-child"></i></span>Kids</li>
+        </ul>
+    </div></div>
+</div>
+
+<div id="add_cart" class="hide">
+    <h4 style="text-align: center;">POST YOUR AD</h4>
+    <div class="container des1">
+        <h5>SELECTED CATEGORY</h5>
+    </div>
+    <div class="container des2">
+        <h5>INCLUDE SOME DETAILS</h5>
+        <p>Add title</p>
+        <input type="text"  style="padding: 10px; width: 100%;">
+        <p>Mention the key features of your item (e.g. brand, model, age, type)</p>
+        <p>Description</p>
+        <input type="text"  style="padding: 4vw 4vw; width: 100%;">
+        <p>Include condition, features and reason for selling</p>
+        <p>Brand</p>
+        <input type="text"  style="padding: 10px; width: 100%;">
+    </div>
+    <div class="container des3">
+        <h5>SET A PRICE</h5>
+        <p>Price</p>
+        <input type="text" style="padding: 10px; width: 100%;" placeholder="Rs" required>
+    </div>
+    <div class="container des4">
+        <h5>UPLOAD UP TO 4 PHOTOS</h5>
+        <div style="display: flex; row-gap: 10px; flex-wrap: wrap;">
+            <div class="sub"><img src="https://www.olx.com.pk/assets/iconAddPhoto_noinline.8924e2486f689a28af51da37a7bda6ec.svg"  width="100"> <input type="file"/></div>
+            <div class="sub"><img src="https://www.olx.com.pk/assets/iconAddPhoto_noinline.8924e2486f689a28af51da37a7bda6ec.svg"  width="100"><input type="file"/></div>
+            <div class="sub"><img src="https://www.olx.com.pk/assets/iconAddPhoto_noinline.8924e2486f689a28af51da37a7bda6ec.svg"  width="100"><input type="file"/></div>
+            <div class="sub"><img src="https://www.olx.com.pk/assets/iconAddPhoto_noinline.8924e2486f689a28af51da37a7bda6ec.svg"  width="100"><input type="file"/></div>
+        </div>
+        <p>For the cover picture we recommend using the landscape mode.</p>
+    </div>
+    <div class="container des2">
+        <h5>YOUR AD'S LOCATION</h5>
+        <p>Location</p>
+        <input type="text"  style="padding: 10px; width: 100%;">
+</div>
+<div class="container des5">
+    <button onclick="onSubmit()">Post now</button>
+</div>
+</div>
+
+<script type="module" src="post.js"></script>
+</body>
+</html>

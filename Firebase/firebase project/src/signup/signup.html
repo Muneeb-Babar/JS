@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in</title>
-    <script src="./login.js"></script>
     <style>
         .container1{
             position: relative;
@@ -43,18 +42,20 @@
         <img src="./sign.svg" alt="">
         <h3>Welcome to OLX</h3>
         <h6>The trusted community of buyers <br> and sellers.</h6>
+        <input type="text" name="" id="" placeholder="Enter your Full Name" size="30"><br>
         <input type="email" name="" id="" placeholder="Enter your Email" size="30" onfocus="this.style.border='1px solid white'"  onblur="this.style.border='1px solid skyblue'">
         <br>
         <input type="password" name="" id="" placeholder="Enter Your Password" size="30" onfocus="this.style.border='1px solid white'"  onblur="this.style.border='1px solid skyblue'">
         <br>
-        <button class="btn1" onclick="onLogin()">Log In</button>
+        <input type="password" name="" id="" placeholder="Renter Your Password" size="30" onfocus="this.style.border='1px solid white'"  onblur="this.style.border='1px solid skyblue'">
+        <br>
+        <button class="btn1" onclick="onSignup()">Sign Up</button>
         <p>By continuing, you are accepting <br>
             <span style="color: skyblue;">OLX Terms of use</span> and <span style="color: skyblue;">Privacy Policy</span>
         </p>
-        <p>You don't have a account &nbsp; <a href="./signup.html" style="color: rgb(232, 104, 170);">Sign up</a></p>
+        <p>You already have an account &nbsp; <a href="./login.html" style="color: rgb(232, 104, 170);">Log In</a></p>
         
-
     </div>
-    <script src="./login.js" type="module"></script>
+    <script type="module" src="./signup.js"></script>
 </body>
 </html>
