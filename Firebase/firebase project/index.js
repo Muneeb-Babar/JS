@@ -1,5 +1,5 @@
 import { auth,onAuthStateChanged } from "./src/config.js"
-import { getAds } from "./src/config.js" 
+import { getAds,logout } from "./src/config.js" 
 
 
 // fetch('https://dummyjson.com/products')
@@ -35,6 +35,16 @@ if (user) {
     const emailElement = document.getElementById('replac')
     emailElement.innerHTML = user.email
 
+    
+    renderAds()
+    
+
+} else {
+    window.location.href='./src/signup/signup.html'
+}
+})
+
+async function renderAds(){
     const ads= await getAds()
     console.log(ads)
     var getData=document.getElementById('getData')
@@ -44,7 +54,7 @@ if (user) {
 
         var card=document.createElement('div')
         card.onclick = function () {
-            location.href = './product.html?adId=ad.id'+ad.id
+            window.location.href = './product.html?adId='+ad.id
         }
         var image=document.createElement('img')
         image.src=ad.image
@@ -60,10 +70,7 @@ if (user) {
         card.append(title)
         card.append(amount)
         getData.append(card)
-    }
-
-} else {
-    window.location.href='./src/signup/signup.html'
+}}
+window.signout = function() {
+    logout()
 }
-})
-

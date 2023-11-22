@@ -1,7 +1,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-import { getAuth , createUserWithEmailAndPassword , signInWithEmailAndPassword ,onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
-import { getFirestore,collection, addDoc, getDocs, getDoc, doc } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+import { getAuth , createUserWithEmailAndPassword , signInWithEmailAndPassword ,onAuthStateChanged,signOut } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+import { getFirestore,collection, setDoc, getDocs, getDoc, doc,addDoc } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-storage.js";
 
 const firebaseConfig = {
@@ -20,33 +20,32 @@ const db = getFirestore(app);
 const storage = getStorage();
 
 
-function register(user){
+async function register(user){
     const {firstName,email,password,phoneNumber} = user
+    try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password)
 
-    createUserWithEmailAndPassword(auth, email, password)
-    .then(async (userCredential) => {
-        try {
-            const docRef = await addDoc(collection(db, "users"), {
+        // await addDoc(collection(db, "users"), {
+        //     fullname,
+        //     email
+        // })
+        console.log('userCredential --', userCredential)
+        await setDoc(doc(db, "users", userCredential.user.uid), {
             firstName,
             email
-            });
-            alert('Signup Successfully')
-            console.log("Document written with ID: ", docRef.id);
-        } catch (e) {
-            console.error("Error adding document: ", e);
-        }
+        });
+        alert('sign in Successfully')
 
-    const user = userCredential.user;
+} 
+    
+    catch (e) {
+        alert(e.message)
+    }
+}
+
     
 
-    })
-    .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message.split(': ')[1]
-    alert(errorMessage)
-    });
 
-}
 
 function logIn(user){
     const{email,password}=user
@@ -105,18 +104,36 @@ ad.id = doc.id
 }
 
 
-async function  getSingleAd(adId){
-    const docRef = doc (db, "ads",adId);
-const docSnap = await getDoc(docRef);
+async function getSingleAd(adId) {
+    const docRef = doc(db, "ads", adId);
+    const docSnap = await getDoc(docRef);
 
-if (docSnap.exists()) {
+    if (docSnap.exists()) {
+        const ad = docSnap.data()
 
-    const ad = docSnap.data()
-    return ad
-
-} else {
-    console.log("No such document!");
+        return ad
+    } else {
+        // docSnap.data() will be undefined in this case
+        console.log("No such document!");
+    }
 }
+
+async function getUser(uid) {
+    console.log('uid', uid)
+    const docRef = doc(db, "users", uid);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+        const user = docSnap.data()
+
+        return user
+    } else {
+        // docSnap.data() will be undefined in this case
+        console.log("No such document!");
+    }
+}
+function logout() {
+    return signOut(auth)
 }
 
 export{
@@ -125,6 +142,8 @@ export{
     postToDb,
     getAds,
     getSingleAd,
+    logout,
+    getUser,
     onAuthStateChanged,
     auth
 }

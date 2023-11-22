@@ -1,4 +1,4 @@
-import { postToDb } from "../../config.js"
+import { postToDb, auth } from "../../config.js"
 
 window.hideLi=function(){
     var main1=document.getElementById('main1')
@@ -8,6 +8,8 @@ window.hideLi=function(){
 }
 
 window.onSubmit=function(){
+    const uid = auth.currentUser.uid
+    console.log(uid)
     var allInputs=document.getElementsByTagName('input')
     var title=allInputs[0].value
     var description=allInputs[1].value
@@ -22,6 +24,7 @@ const ad ={
     brand,
     price,
     location,
+    uid,
     image
 }
 postToDb(ad)
