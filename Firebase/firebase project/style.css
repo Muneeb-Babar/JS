@@ -252,15 +252,13 @@ align-items: center;
 .ad1{
 width: 100vw;
 height:5vh;
-display: flex;
-flex-wrap: wrap;
-align-items: center;
+
 /* background-color: aliceblue; */
 margin-top: 10px;
 }
 .ad1 h1{
-position: relative;
 font-size: 2rem;
+margin-top: 40px;
 }
 .ad11 h1{
 left: 0;
@@ -269,12 +267,10 @@ width: 100%;
 }
 .ad2{
 width: 100vw;
-height:50vh;
 display: flex;
-justify-content: center;
 flex-wrap: wrap;
-/* background-color: aliceblue; */
 margin-top: 10px;
+gap: 25px;
 }
 .ad3{
 width: 80vw;

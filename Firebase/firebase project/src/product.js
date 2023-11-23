@@ -36,7 +36,7 @@ parentDiv.innerHTML = `
 <h4><span class="span">Price: </span> ${ad.price} $</h4>
 <div class="description">
 <p><span class="span">Description: </span> ${ad.description}</p>
-<p><span class="span">User Name: </span> ${user.firstName}</p>
+<p><span class="span">Saler Name: </span> ${user.firstName}</p>
 </div>`
 
 // const card = document.createElement('div')

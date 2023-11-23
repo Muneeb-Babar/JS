@@ -30,15 +30,12 @@ import { getAds,logout } from "./src/config.js"
 //   break;
 // }
 
-onAuthStateChanged(auth, async(user) => {
+onAuthStateChanged(auth, (user) => {
 if (user) {
     const emailElement = document.getElementById('replac')
     emailElement.innerHTML = user.email
 
-    
     renderAds()
-    
-
 } else {
     window.location.href='./src/signup/signup.html'
 }
