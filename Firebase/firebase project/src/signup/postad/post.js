@@ -29,3 +29,6 @@ const ad ={
 }
 postToDb(ad)
 }
+window.myAds=function(){
+    window.location.href='../../myads/myad.html'
+}

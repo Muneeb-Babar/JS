@@ -24,5 +24,4 @@ window.onLogin=function(){
     const user= {email,password}
     logIn(user)
 
-    window.location.href="../../olx.html"
 }

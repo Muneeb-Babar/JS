@@ -44,6 +44,13 @@
             width: 100%;
             padding: 10px;
             background-color: rgb(241, 240, 240);
+            display: flex;
+            justify-content: space-between;
+        }
+        .main button{
+            margin-top: 15px;
+            padding: 4px 8px;
+            border-radius: 10px;
         }
         
         .hide{

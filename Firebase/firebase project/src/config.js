@@ -1,7 +1,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
 import { getAuth , createUserWithEmailAndPassword , signInWithEmailAndPassword ,onAuthStateChanged,signOut } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
-import { getFirestore,collection, setDoc, getDocs, getDoc, doc,addDoc } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+import { getFirestore,collection, setDoc, getDocs, getDoc, doc,addDoc,where, query } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-storage.js";
 
 const firebaseConfig = {
@@ -56,6 +56,8 @@ function logIn(user){
     const user = userCredential.user;
     alert('Logged In Successfully')
     
+    window.location.href="../../olx.html"
+    
 })
 .catch((error) => {
     const errorCode = error.code;
@@ -91,15 +93,19 @@ catch (e) {
 }
 }
 
-async function getAds(){
-    const querySnapshot = await getDocs(collection(db, "ads"));
-    const ads=[]
-querySnapshot.forEach((doc) => {
-// console.log(doc.id, " => ", doc.data());
-const ad = doc.data()
-ad.id = doc.id
-    ads.push(ad)
-});
+async function getAds() {
+    const querySnapshot = await getDocs(collection(db, "ads"))
+    const ads = []
+    querySnapshot.forEach((doc) => {
+        // console.log(doc.id, " => ", doc.data());
+        // const ad = { id: doc.id, ...doc.data() }
+
+        const ad = doc.data()
+        ad.id = doc.id
+
+        ads.push(ad)
+    });
+
     return ads
 }
 
@@ -136,6 +142,20 @@ function logout() {
     return signOut(auth)
 }
 
+async function getMyAdsFromDb(uid) {
+    const adsRef = collection(db, "ads")
+    const querySnapshot = await getDocs(query(adsRef, where("uid", "==", uid)))
+    const ads = []
+    querySnapshot.forEach((doc) => {
+        const ad = doc.data()
+        ad.id = doc.id
+
+        ads.push(ad)
+    });
+
+    return ads
+}
+
 export{
     register,
     logIn,
@@ -144,6 +164,7 @@ export{
     getSingleAd,
     logout,
     getUser,
+    getMyAdsFromDb,
     onAuthStateChanged,
     auth
 }

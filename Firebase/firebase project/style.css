@@ -379,9 +379,14 @@ height: 8vh;
 background-color: #002f34;
 display: flex;
 justify-content: center;
+flex-direction: column;
 align-items: center;
 position: relative;
 bottom: 0;
+}
+.foot_last button{
+  border-radius: 10px; color: white; padding: 6px 8px; background-color: #002f34;
+  border: 1px solid white;
 }
 .end{
 color: white;

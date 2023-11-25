@@ -32,7 +32,7 @@ import { getAds,logout } from "./src/config.js"
 
 onAuthStateChanged(auth, (user) => {
 if (user) {
-    const emailElement = document.getElementById('replac')
+    const emailElement = document.getElementById('replaceEmail')
     emailElement.innerHTML = user.email
 
     renderAds()
