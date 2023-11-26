@@ -28,6 +28,7 @@
         .categories li:hover{
             background-color: black;
             color: aliceblue;
+            transition: 2s ease;
         }
         
         .categories ul{

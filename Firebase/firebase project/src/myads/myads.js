@@ -30,7 +30,7 @@ async function getMyAds() {
 
         const img = document.createElement('img')
         img.src = ad.image
-        img.style.width = '200px'
+        img.style.width = '250px'
         img.style.height = '200px'
 
         const title = document.createElement('h3')

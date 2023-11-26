@@ -50,9 +50,9 @@ async function renderAds(){
         var ad=ads[i]
 
         var card=document.createElement('div')
-        card.onclick = function () {
+        card.addEventListener ('click' ,function() {
             window.location.href = './product.html?adId='+ad.id
-        }
+        })
         var image=document.createElement('img')
         image.src=ad.image
         image.style.width='300px'
