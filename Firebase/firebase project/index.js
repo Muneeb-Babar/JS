@@ -1,5 +1,5 @@
 import { auth,onAuthStateChanged } from "./src/config.js"
-import { getAds,logout } from "./src/config.js" 
+import { getAds,logout,searchInAds,sortAds } from "./src/config.js" 
 
 
 // fetch('https://dummyjson.com/products')
@@ -44,30 +44,58 @@ if (user) {
 async function renderAds(){
     const ads= await getAds()
     console.log(ads)
-    var getData=document.getElementById('getData')
 
-    for(var i=0; i<ads.length; i++){
-        var ad=ads[i]
+    renderAdItems(ads)
 
-        var card=document.createElement('div')
-        card.addEventListener ('click' ,function() {
-            window.location.href = './product.html?adId='+ad.id
-        })
-        var image=document.createElement('img')
-        image.src=ad.image
-        image.style.width='300px'
-        image.style.height='200px'
-
-        var title=document.createElement('h3')
-        title.innerHTML=ad.brand
-        var amount=document.createElement('h5')
-        amount.innerHTML=`Rs ${ad.price}`
-
-        card.append(image)
-        card.append(title)
-        card.append(amount)
-        getData.append(card)
-}}
+}
 window.signout = function() {
     logout()
 }
+
+
+window.search = async function () {
+    const inputValue = document.getElementById('inputValue').value
+    if (!inputValue) {
+        renderAds()
+    } else {
+        const ads = await searchInAds(inputValue)
+        renderAdItems(ads)
+    }}
+
+    function renderAdItems(ads) {
+        var getData=document.getElementById('getData')
+        getData.innerHTML=''
+
+        for(var i=0; i<ads.length; i++){
+            var ad=ads[i]
+    
+            var card=document.createElement('div')
+            card.addEventListener ('click' ,function() {
+                window.location.href = './product.html?adId='+ad.id
+            })
+            var image=document.createElement('img')
+            image.src=ad.image
+            image.style.width='300px'
+            image.style.height='200px'
+    
+            var title=document.createElement('h3')
+            title.innerHTML=ad.brand
+            var amount=document.createElement('h5')
+            amount.innerHTML=`Rs ${ad.price}`
+    
+            card.append(image)
+            card.append(title)
+            card.append(amount)
+            getData.append(card)
+        }
+    }
+    window.sort = async function (event) {
+        const sortBy = event.target.value
+    
+        if (!sortBy) {
+            renderAds()
+        } else {
+            const ads = await sortAds(sortBy)
+            renderAdItems(ads)
+        }
+    }

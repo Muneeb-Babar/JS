@@ -17,6 +17,7 @@ window.onSubmit=function(){
     var price=allInputs[3].value
     var image=allInputs[4].files[0]
     var location=allInputs[8].value
+    const createdAt = new Date()
 
 const ad ={
     title,
@@ -25,6 +26,7 @@ const ad ={
     price,
     location,
     uid,
+    createdAt,
     image
 }
 postToDb(ad)

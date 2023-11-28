@@ -1,7 +1,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
 import { getAuth , createUserWithEmailAndPassword , signInWithEmailAndPassword ,onAuthStateChanged,signOut } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
-import { getFirestore,collection, setDoc, getDocs, getDoc, doc,addDoc,where, query } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+import { getFirestore,collection, setDoc, getDocs, getDoc, doc,addDoc,where, query,orderBy } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-storage.js";
 
 const firebaseConfig = {
@@ -156,6 +156,33 @@ async function getMyAdsFromDb(uid) {
     return ads
 }
 
+async function searchInAds(inputValue) {
+    const adsRef = collection(db, "ads")
+    const querySnapshot = await getDocs(query(adsRef, where("title", "==", inputValue)))
+    const ads = []
+    querySnapshot.forEach((doc) => {
+        const ad = doc.data()
+        ad.id = doc.id
+
+        ads.push(ad)
+    });
+
+    return ads
+}
+async function sortAds(sortBy) {
+    const adsRef = collection(db, "ads")
+    const querySnapshot = await getDocs(query(adsRef, orderBy('price', sortBy)))
+    const ads = []
+    querySnapshot.forEach((doc) => {
+        const ad = doc.data()
+        ad.id = doc.id
+
+        ads.push(ad)
+    });
+
+    return ads
+}
+
 export{
     register,
     logIn,
@@ -165,6 +192,8 @@ export{
     logout,
     getUser,
     getMyAdsFromDb,
+    searchInAds,
+    sortAds,
     onAuthStateChanged,
     auth
 }
