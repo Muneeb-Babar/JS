@@ -1,6 +1,6 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-import { getAuth , createUserWithEmailAndPassword , signInWithEmailAndPassword ,onAuthStateChanged,signOut } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+import { getAuth , createUserWithEmailAndPassword , signInWithEmailAndPassword ,onAuthStateChanged,signOut,signInWithPopup, FacebookAuthProvider } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 import { getFirestore,collection, setDoc, getDocs, getDoc, doc,addDoc,where, query,orderBy } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-storage.js";
 
@@ -13,7 +13,7 @@ const firebaseConfig = {
     appId: "1:986217264801:web:ed5c55b76ba4fe71a322e0"
 };
 
-
+const provider = new FacebookAuthProvider();
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -43,7 +43,16 @@ async function register(user){
     }
 }
 
-    
+async function facebookLogin(){
+    try{
+let result= await signInWithPopup(auth, provider)
+console.log(result)
+location.href='../../index.html'
+}
+catch(e){
+    console.log(e.message)
+}
+}  
 
 
 
@@ -56,7 +65,7 @@ function logIn(user){
     const user = userCredential.user;
     alert('Logged In Successfully')
     
-    window.location.href="../../olx.html"
+    window.location.href="../../index.html"
     
 })
 .catch((error) => {
@@ -194,6 +203,7 @@ export{
     getMyAdsFromDb,
     searchInAds,
     sortAds,
+    facebookLogin,
     onAuthStateChanged,
     auth
 }

@@ -1,4 +1,5 @@
-import { logIn } from "../config.js";
+import { logIn} from "../config.js";
+import { facebookLogin } from "../config.js";
 
 window.onLogin=function(){
     const allInputs=document.getElementsByTagName('input')
@@ -24,4 +25,7 @@ window.onLogin=function(){
     const user= {email,password}
     logIn(user)
 
+}
+window.faceLog=function(){
+    facebookLogin()
 }
