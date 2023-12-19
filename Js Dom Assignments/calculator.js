@@ -1,7 +1,7 @@
 
-var input=''
+// var input=''
 function getnum(num){
-    input+=num
+    // input+=num
     var inputElement=document.getElementById('input')
     inputElement.value+=num
 }
