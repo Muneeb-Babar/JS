@@ -35,7 +35,6 @@ async function register(user){
             email
         });
         alert('sign in Successfully')
-
 } 
     
     catch (e) {
@@ -158,7 +157,6 @@ async function getMyAdsFromDb(uid) {
     querySnapshot.forEach((doc) => {
         const ad = doc.data()
         ad.id = doc.id
-
         ads.push(ad)
     });
 
